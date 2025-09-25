@@ -1,0 +1,539 @@
+{
+  "metadata": {
+    "total_images": 10,
+    "timestamp": "2025-09-24 12:39:13",
+    "comparison_date": 1758692353.3323584
+  },
+  "engines": {
+    "easyocr": {
+      "name": "EasyOCR (Gốc)",
+      "icon": "🔵",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        7.214829921722412,
+        5.601887464523315,
+        3.571526050567627,
+        8.26727557182312,
+        5.750657320022583,
+        3.3476312160491943,
+        3.033508777618408,
+        5.795305490493774,
+        2.8611068725585938,
+        3.2911558151245117
+      ],
+      "word_counts": [
+        8,
+        5,
+        6,
+        14,
+        11,
+        5,
+        9,
+        9,
+        4,
+        6
+      ],
+      "confidences": [
+        0.6859170666365844,
+        0.6535332847686219,
+        0.9209012351274173,
+        0.8979296939344298,
+        0.8182392963758821,
+        0.6969185094045101,
+        0.7132831158891978,
+        0.6243376195835117,
+        0.8240420677734331,
+        0.596764860459521
+      ],
+      "total_words": 77,
+      "total_time": 48.73488450050354,
+      "avg_time": 4.873488450050354,
+      "avg_words": 7.7,
+      "avg_confidence": 0.7431866749953109,
+      "success_rate": 1.0,
+      "text_regions": [],
+      "min_time": 2.8611068725585938,
+      "max_time": 8.26727557182312,
+      "min_words": 4,
+      "max_words": 14,
+      "min_confidence": 0.596764860459521,
+      "max_confidence": 0.9209012351274173
+    },
+    "easyocr_preprocessed": {
+      "name": "EasyOCR (Tiền xử lý)",
+      "icon": "🔵",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        5.258384943008423,
+        5.059712648391724,
+        2.651092767715454,
+        7.635014295578003,
+        5.248323917388916,
+        3.091705083847046,
+        2.399859666824341,
+        4.945710897445679,
+        2.921848773956299,
+        3.2644598484039307
+      ],
+      "word_counts": [
+        2,
+        1,
+        3,
+        10,
+        3,
+        1,
+        2,
+        1,
+        3,
+        5
+      ],
+      "confidences": [
+        0.9324750770957597,
+        0.5996658183974294,
+        0.5139202882529047,
+        0.7867204867743942,
+        0.6601596858464358,
+        0.7662163616546603,
+        0.5492827805100254,
+        0.8160701053824383,
+        0.7121593649871785,
+        0.5197755383905169
+      ],
+      "total_words": 31,
+      "total_time": 42.476112842559814,
+      "avg_time": 4.2476112842559814,
+      "avg_words": 3.1,
+      "avg_confidence": 0.6856445507291743,
+      "success_rate": 1.0,
+      "text_regions": [],
+      "min_time": 2.399859666824341,
+      "max_time": 7.635014295578003,
+      "min_words": 1,
+      "max_words": 10,
+      "min_confidence": 0.5139202882529047,
+      "max_confidence": 0.9324750770957597
+    },
+    "doctr": {
+      "name": "DocTR (Gốc)",
+      "icon": "🔴",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        3.808018207550049,
+        2.620821714401245,
+        2.7790679931640625,
+        2.643684148788452,
+        2.857081651687622,
+        3.9620754718780518,
+        3.641613721847534,
+        3.0776352882385254,
+        2.558293581008911,
+        3.0350351333618164
+      ],
+      "word_counts": [
+        55,
+        20,
+        29,
+        24,
+        25,
+        26,
+        40,
+        36,
+        19,
+        31
+      ],
+      "confidences": [
+        0.8102248842065984,
+        0.7913624674081803,
+        0.7610953635182874,
+        0.8593057319521904,
+        0.7070783340930938,
+        0.7622275329553164,
+        0.8924441948533058,
+        0.814091312388579,
+        0.8414275567782553,
+        0.8209346994276969
+      ],
+      "total_words": 305,
+      "total_time": 30.98332691192627,
+      "avg_time": 3.0983326911926268,
+      "avg_words": 30.5,
+      "avg_confidence": 0.8060192077581504,
+      "success_rate": 1.0,
+      "text_regions": [],
+      "min_time": 2.558293581008911,
+      "max_time": 3.9620754718780518,
+      "min_words": 19,
+      "max_words": 55,
+      "min_confidence": 0.7070783340930938,
+      "max_confidence": 0.8924441948533058
+    },
+    "doctr_preprocessed": {
+      "name": "DocTR (Tiền xử lý)",
+      "icon": "🔴",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        2.7060070037841797,
+        2.779972553253174,
+        2.9458184242248535,
+        2.9711482524871826,
+        2.453274965286255,
+        3.448749542236328,
+        3.9861834049224854,
+        2.301774263381958,
+        2.4933857917785645,
+        2.877790927886963
+      ],
+      "word_counts": [
+        14,
+        11,
+        30,
+        19,
+        9,
+        11,
+        37,
+        5,
+        14,
+        27
+      ],
+      "confidences": [
+        0.815032599227769,
+        0.7267723218961195,
+        0.778861794869105,
+        0.836449572914525,
+        0.8108557495805953,
+        0.5714654461904005,
+        0.6786504991956659,
+        0.7891974329948426,
+        0.7198856770992279,
+        0.7985063371834932
+      ],
+      "total_words": 177,
+      "total_time": 28.964105129241943,
+      "avg_time": 2.896410512924194,
+      "avg_words": 17.7,
+      "avg_confidence": 0.7525677431151744,
+      "success_rate": 1.0,
+      "text_regions": [],
+      "min_time": 2.301774263381958,
+      "max_time": 3.9861834049224854,
+      "min_words": 5,
+      "max_words": 37,
+      "min_confidence": 0.5714654461904005,
+      "max_confidence": 0.836449572914525
+    },
+    "pytesseract": {
+      "name": "Pytesseract (Gốc)",
+      "icon": "🟡",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        1.0839085578918457,
+        1.0338499546051025,
+        0.7079994678497314,
+        1.0904486179351807,
+        1.6100804805755615,
+        1.3790152072906494,
+        0.7084286212921143,
+        0.9462974071502686,
+        0.7928590774536133,
+        0.7516164779663086
+      ],
+      "word_counts": [
+        9,
+        14,
+        6,
+        18,
+        22,
+        11,
+        21,
+        11,
+        3,
+        21
+      ],
+      "confidences": [
+        0.94,
+        0.6207142857142857,
+        0.7283333333333334,
+        0.6355555555555555,
+        0.48727272727272736,
+        0.5436363636363636,
+        0.7352380952380952,
+        0.8145454545454546,
+        0.7666666666666667,
+        0.6747619047619049
+      ],
+      "total_words": 136,
+      "total_time": 10.104503870010376,
+      "avg_time": 1.0104503870010375,
+      "avg_words": 13.6,
+      "avg_confidence": 0.6946724386724387,
+      "success_rate": 1.0,
+      "text_regions": [],
+      "min_time": 0.7079994678497314,
+      "max_time": 1.6100804805755615,
+      "min_words": 3,
+      "max_words": 22,
+      "min_confidence": 0.48727272727272736,
+      "max_confidence": 0.94
+    },
+    "pytesseract_preprocessed": {
+      "name": "Pytesseract (Tiền xử lý)",
+      "icon": "🟡",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        0.5316314697265625,
+        0.5734868049621582,
+        0.48549938201904297,
+        0.8444638252258301,
+        1.076514482498169,
+        1.0261259078979492,
+        0.589768648147583,
+        0.46442294120788574,
+        0.45855069160461426,
+        0.41533613204956055
+      ],
+      "word_counts": [
+        8,
+        3,
+        2,
+        30,
+        24,
+        29,
+        21,
+        1,
+        5,
+        0
+      ],
+      "confidences": [
+        0.7687499999999999,
+        0.6,
+        0.8300000000000001,
+        0.5869999999999999,
+        0.4791666666666667,
+        0.5172413793103449,
+        0.6161904761904762,
+        0.49,
+        0.724
+      ],
+      "total_words": 123,
+      "total_time": 6.4658002853393555,
+      "avg_time": 0.6465800285339356,
+      "avg_words": 12.3,
+      "avg_confidence": 0.623594280240832,
+      "success_rate": 1.0,
+      "text_regions": [],
+      "min_time": 0.41533613204956055,
+      "max_time": 1.076514482498169,
+      "min_words": 0,
+      "max_words": 30,
+      "min_confidence": 0.4791666666666667,
+      "max_confidence": 0.8300000000000001
+    },
+    "opencv": {
+      "name": "OpenCV (Text Detection)",
+      "icon": "🟢",
+      "successful_runs": 10,
+      "failed_runs": 0,
+      "processing_times": [
+        0.04327750205993652,
+        0.032541513442993164,
+        0.010004043579101562,
+        0.049187660217285156,
+        0.025999069213867188,
+        0.015265464782714844,
+        0.005257129669189453,
+        0.03845930099487305,
+        0.021422386169433594,
+        0.01774883270263672
+      ],
+      "word_counts": [],
+      "confidences": [],
+      "total_words": 0,
+      "total_time": 0.25916290283203125,
+      "avg_time": 0.025916290283203126,
+      "avg_words": 0,
+      "avg_confidence": 0,
+      "success_rate": 1.0,
+      "text_regions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "min_time": 0.005257129669189453,
+      "max_time": 0.049187660217285156,
+      "total_regions": 0,
+      "avg_regions": 0
+    }
+  },
+  "performance_ranking": {
+    "speed": [
+      [
+        "opencv",
+        0.025916290283203126
+      ],
+      [
+        "pytesseract_preprocessed",
+        0.6465800285339356
+      ],
+      [
+        "pytesseract",
+        1.0104503870010375
+      ],
+      [
+        "doctr_preprocessed",
+        2.896410512924194
+      ],
+      [
+        "doctr",
+        3.0983326911926268
+      ],
+      [
+        "easyocr_preprocessed",
+        4.2476112842559814
+      ],
+      [
+        "easyocr",
+        4.873488450050354
+      ]
+    ],
+    "words": [
+      [
+        "doctr",
+        305
+      ],
+      [
+        "doctr_preprocessed",
+        177
+      ],
+      [
+        "pytesseract",
+        136
+      ],
+      [
+        "pytesseract_preprocessed",
+        123
+      ],
+      [
+        "easyocr",
+        77
+      ],
+      [
+        "easyocr_preprocessed",
+        31
+      ],
+      [
+        "opencv",
+        0
+      ]
+    ],
+    "confidence": [
+      [
+        "doctr",
+        0.8060192077581504
+      ],
+      [
+        "doctr_preprocessed",
+        0.7525677431151744
+      ],
+      [
+        "easyocr",
+        0.7431866749953109
+      ],
+      [
+        "pytesseract",
+        0.6946724386724387
+      ],
+      [
+        "easyocr_preprocessed",
+        0.6856445507291743
+      ],
+      [
+        "pytesseract_preprocessed",
+        0.623594280240832
+      ]
+    ],
+    "success_rate": [
+      [
+        "easyocr",
+        1.0
+      ],
+      [
+        "easyocr_preprocessed",
+        1.0
+      ],
+      [
+        "doctr",
+        1.0
+      ],
+      [
+        "doctr_preprocessed",
+        1.0
+      ],
+      [
+        "pytesseract",
+        1.0
+      ],
+      [
+        "pytesseract_preprocessed",
+        1.0
+      ],
+      [
+        "opencv",
+        1.0
+      ]
+    ]
+  },
+  "detailed_analysis": {
+    "best_speed": "opencv",
+    "best_accuracy": "doctr",
+    "most_words": "doctr",
+    "most_reliable": "easyocr",
+    "preprocessing_impact": {
+      "easyocr": {
+        "time_improvement_percent": 12.842487926444274,
+        "original_avg_time": 4.873488450050354,
+        "preprocessed_avg_time": 4.2476112842559814,
+        "word_improvement_percent": -59.74025974025974,
+        "original_avg_words": 7.7,
+        "preprocessed_avg_words": 3.1,
+        "confidence_improvement_percent": -7.7426205557977275,
+        "original_avg_confidence": 0.7431866749953109,
+        "preprocessed_avg_confidence": 0.6856445507291743
+      },
+      "doctr": {
+        "time_improvement_percent": 6.517123833809714,
+        "original_avg_time": 3.0983326911926268,
+        "preprocessed_avg_time": 2.896410512924194,
+        "word_improvement_percent": -41.967213114754095,
+        "original_avg_words": 30.5,
+        "preprocessed_avg_words": 17.7,
+        "confidence_improvement_percent": -6.631537329196546,
+        "original_avg_confidence": 0.8060192077581504,
+        "preprocessed_avg_confidence": 0.7525677431151744
+      },
+      "pytesseract": {
+        "time_improvement_percent": 36.01070999112085,
+        "original_avg_time": 1.0104503870010375,
+        "preprocessed_avg_time": 0.6465800285339356,
+        "word_improvement_percent": -9.558823529411757,
+        "original_avg_words": 13.6,
+        "preprocessed_avg_words": 12.3,
+        "confidence_improvement_percent": -10.231895563244366,
+        "original_avg_confidence": 0.6946724386724387,
+        "preprocessed_avg_confidence": 0.623594280240832
+      }
+    }
+  }
+}
