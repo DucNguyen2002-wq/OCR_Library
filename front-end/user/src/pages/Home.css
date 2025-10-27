@@ -1,0 +1,216 @@
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--secondary) 0%, #fff 100%);
+  padding: 80px 0;
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 15px 30px;
+  font-weight: 600;
+}
+
+.hero-image {
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Features Section */
+.features-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: var(--primary);
+  color: var(--dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Featured Books Section */
+.featured-section {
+  padding: 60px 0;
+  background: var(--secondary);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0;
+}
+
+.view-all-link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: var(--dark);
+  text-decoration: underline;
+}
+
+.view-all-link i {
+  margin-left: 5px;
+  transition: margin-left 0.3s ease;
+}
+
+.view-all-link:hover i {
+  margin-left: 10px;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 80px 0;
+  background: var(--dark);
+  color: #fff;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-section .btn-light {
+  background: #fff;
+  color: var(--dark);
+  border: none;
+  padding: 15px 40px;
+  font-weight: 600;
+}
+
+.cta-section .btn-light:hover {
+  background: var(--primary);
+  color: var(--dark);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-section {
+    padding: 60px 0;
+  }
+  
+  .hero-image {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .features-section,
+  .featured-section {
+    padding: 40px 0;
+  }
+  
+  .cta-section {
+    padding: 60px 0;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+
+# Uploaded files
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sql.bak
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# OCR cache
+ocr_cache/
+
+# Old files (React - đã xóa)
+client/
