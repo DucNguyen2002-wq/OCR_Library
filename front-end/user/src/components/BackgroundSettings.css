@@ -1,0 +1,328 @@
+/**
+ * BackgroundSettings Styles
+ * Styling cho component cài đặt hiệu ứng nền
+ */
+
+.background-settings {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Toggle Button */
+.settings-toggle-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--button-gradient, linear-gradient(135deg, #059669 0%, #047857 100%));
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg, 0 10px 25px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-toggle-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.3);
+}
+
+.settings-toggle-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Settings Panel */
+.settings-panel {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 400px;
+  max-width: calc(100vw - 40px);
+  background: var(--bg-card, #ffffff);
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl, 0 20px 50px rgba(0, 0, 0, 0.15));
+  border: 1px solid var(--border-color, #e5e7eb);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--bg-secondary, linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%));
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary, #047857);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-tertiary, #6b7280);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: var(--bg-hover, rgba(0, 0, 0, 0.05));
+  color: var(--text-primary, #047857);
+}
+
+/* Content */
+.settings-content {
+  padding: 20px;
+}
+
+/* Toggle Item */
+.setting-item {
+  margin-bottom: 20px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-label input[type="checkbox"] {
+  width: 48px;
+  height: 24px;
+  appearance: none;
+  background: var(--bg-tertiary, #e5e7eb);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-label input[type="checkbox"]:checked {
+  background: var(--accent-primary, #059669);
+}
+
+.toggle-label input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-label input[type="checkbox"]:checked::before {
+  left: 26px;
+}
+
+.toggle-text {
+  font-weight: 500;
+  color: var(--text-primary, #047857);
+}
+
+/* Effects Grid */
+.effects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Effect Card */
+.effect-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid var(--border-color, #e5e7eb);
+  background: var(--bg-card, #ffffff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.effect-card:hover {
+  border-color: var(--accent-primary, #059669);
+  background: var(--bg-hover, #f0fdf4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08));
+}
+
+.effect-card.active {
+  border-color: var(--accent-primary, #059669);
+  background: var(--bg-hover, #f0fdf4);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.effect-icon {
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary, #ecfdf5);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.effect-info {
+  flex: 1;
+}
+
+.effect-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary, #047857);
+}
+
+.effect-info p {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  color: var(--text-secondary, #065f46);
+  line-height: 1.4;
+}
+
+.effect-performance {
+  margin-top: 4px;
+}
+
+.effect-performance small {
+  font-size: 11px;
+  color: var(--text-tertiary, #6b7280);
+}
+
+/* Info */
+.settings-info {
+  padding: 12px;
+  background: var(--bg-tertiary, #f0fdf4);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent-primary, #059669);
+}
+
+.settings-info small {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary, #065f46);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .settings-toggle-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+[data-theme="dark"] .settings-panel {
+  background: var(--bg-card, #1e293b);
+}
+
+[data-theme="dark"] .settings-header {
+  background: var(--bg-secondary, linear-gradient(135deg, #1e293b 0%, #0f172a 100%));
+}
+
+[data-theme="dark"] .effect-card {
+  background: var(--bg-card, #1e293b);
+}
+
+[data-theme="dark"] .effect-card:hover,
+[data-theme="dark"] .effect-card.active {
+  background: var(--bg-hover, #334155);
+}
+
+[data-theme="dark"] .effect-icon {
+  background: var(--bg-secondary, #334155);
+}
+
+[data-theme="dark"] .settings-info {
+  background: var(--bg-tertiary, #334155);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .background-settings {
+    bottom: 80px; /* Avoid footer overlap */
+    right: 16px;
+  }
+
+  .settings-toggle-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .settings-panel {
+    width: calc(100vw - 32px);
+    bottom: 60px;
+  }
+
+  .settings-header {
+    padding: 16px;
+  }
+
+  .settings-header h3 {
+    font-size: 16px;
+  }
+
+  .settings-content {
+    padding: 16px;
+  }
+
+  .effect-card {
+    padding: 12px;
+  }
+
+  .effect-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .effect-info h4 {
+    font-size: 14px;
+  }
+
+  .effect-info p {
+    font-size: 12px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .settings-panel {
+    width: 380px;
+  }
+}

@@ -1,0 +1,252 @@
+/* ============================================
+   BOOK CARD - MINIMAL MONOCHROME DESIGN
+   Clean, Sharp, Professional
+   ============================================ */
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.book-card:hover {
+  border-color: var(--dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   BOOK IMAGE - Sharp Container
+   ============================================ */
+
+.book-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.book-card:hover .book-image img {
+  transform: scale(1.03);
+}
+
+/* Image Overlay - Subtle on Hover */
+.book-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.7) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.book-card:hover .book-overlay {
+  opacity: 1;
+}
+
+.book-overlay .btn {
+  background: var(--white);
+  color: var(--dark);
+  border: 1px solid var(--white);
+  padding: var(--space-2) var(--space-5);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.011em;
+}
+
+.book-overlay .btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* ============================================
+   BOOK INFO - Minimal Typography
+   ============================================ */
+
+.book-info {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+/* Title & Badge Row */
+.book-info > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.book-title {
+  flex: 1;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--dark);
+  letter-spacing: -0.011em;
+}
+
+.book-title a {
+  color: var(--dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.book-title a:hover {
+  color: var(--primary);
+}
+
+/* Status Badge - Positioned */
+.badge {
+  flex-shrink: 0;
+  font-size: 0.6875rem;
+  padding: var(--space-1) var(--space-2);
+}
+
+/* ============================================
+   BOOK METADATA - Clean Icons
+   ============================================ */
+
+.book-author,
+.book-publisher,
+.book-contributor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.book-author i,
+.book-publisher i,
+.book-contributor i {
+  color: var(--gray-400);
+  font-size: 0.875em;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+/* Meta Row - Year & Quantity */
+.book-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.book-year,
+.book-quantity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.book-year i,
+.book-quantity i {
+  color: var(--gray-400);
+  font-size: 0.875em;
+}
+
+/* ============================================
+   BOOK DESCRIPTION - Optional
+   ============================================ */
+
+.book-description {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: var(--space-2) 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================
+   BOOK CONTRIBUTOR - Footer Style
+   ============================================ */
+
+.book-contributor {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.book-contributor small {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .book-image {
+    height: 280px;
+  }
+  
+  .book-info {
+    padding: var(--space-4);
+  }
+  
+  .book-title {
+    font-size: 0.9375rem;
+  }
+  
+  .book-author,
+  .book-publisher {
+    font-size: 0.8125rem;
+  }
+  
+  .book-meta {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 576px) {
+  .book-image {
+    height: 240px;
+  }
+  
+  .book-overlay {
+    padding: var(--space-4);
+  }
+}
