@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './styles/theme.css';
 
 // Layout
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import BackgroundEffect from './components/BackgroundEffect';
+import BackgroundSettings from './components/BackgroundSettings';
 
 // Pages
 import Home from './pages/Home';
 import BookList from './pages/BookList';
 import BookDetail from './pages/BookDetail';
+import Categories from './pages/Categories';
 import AddBook from './pages/AddBook';
 import EditBook from './pages/EditBook';
 import Login from './pages/Login';
@@ -21,6 +26,8 @@ import MyBooks from './pages/MyBooks';
 import MyRejectedBooks from './pages/MyRejectedBooks';
 import EditRejectedBook from './pages/EditRejectedBook';
 import Notifications from './pages/Notifications';
+import ReportUpdates from './pages/ReportUpdates';
+import DeleteRequests from './pages/DeleteRequests';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -82,6 +89,7 @@ const LayoutWrapper = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/books" element={<BookList />} />
           <Route path="/books/:id" element={<BookDetail />} />
+          <Route path="/categories" element={<Categories />} />
           
           {/* Protected Routes */}
           <Route 
@@ -140,6 +148,22 @@ const LayoutWrapper = () => {
               </ProtectedRoute>
             } 
           />
+          <Route 
+            path="/reports/updates" 
+            element={
+              <ProtectedRoute>
+                <ReportUpdates />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/reports/delete-requests" 
+            element={
+              <ProtectedRoute>
+                <DeleteRequests />
+              </ProtectedRoute>
+            } 
+          />
           
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -150,23 +174,57 @@ const LayoutWrapper = () => {
 };
 
 function App() {
+  // Background effect state from localStorage
+  const [backgroundType, setBackgroundType] = useState(() => {
+    return localStorage.getItem('backgroundEffect') || 'gradient-wave';
+  });
+  
+  const [backgroundEnabled, setBackgroundEnabled] = useState(() => {
+    const saved = localStorage.getItem('backgroundEnabled');
+    return saved === null ? true : saved === 'true';
+  });
+
+  // Listen for background settings changes
+  useEffect(() => {
+    const handleSettingsChange = (event) => {
+      setBackgroundType(event.detail.backgroundType);
+      setBackgroundEnabled(event.detail.enabled);
+    };
+
+    window.addEventListener('backgroundSettingsChanged', handleSettingsChange);
+    return () => {
+      window.removeEventListener('backgroundSettingsChanged', handleSettingsChange);
+    };
+  }, []);
+
   return (
-    <AuthProvider>
-      <div className="app">
-        <LayoutWrapper />
-        <ToastContainer 
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </div>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <div className="app">
+          {/* Background Effect - Dynamic based on user settings */}
+          <BackgroundEffect 
+            effectType={backgroundType} 
+            enabled={backgroundEnabled} 
+          />
+          
+          {/* Background Settings Button (Fixed bottom-right) */}
+          <BackgroundSettings />
+          
+          <LayoutWrapper />
+          <ToastContainer 
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </div>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

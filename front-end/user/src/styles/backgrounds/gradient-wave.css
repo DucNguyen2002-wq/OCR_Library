@@ -1,0 +1,140 @@
+/**
+ * HIỆU ỨNG 1: GRADIENT WAVE (Sóng Gradient Động)
+ * 
+ * Mô tả:
+ * - Gradient pastel với các tông màu xanh lá, mint, be và kem
+ * - Chuyển động sóng nhẹ nhàng 20 giây
+ * - Tạo cảm giác thư viện hiện đại, sạch sẽ
+ * 
+ * Ưu điểm:
+ * - Rất nhẹ, không ảnh hưởng performance
+ * - Tạo chiều sâu cho nền mà không che nội dung
+ * - Phù hợp với theme Nature Library
+ */
+
+.gradient-wave-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Light Mode Gradient Wave */
+[data-theme="light"] .gradient-wave-background::before,
+.gradient-wave-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(236, 253, 245, 0.6) 0%,    /* Mint very light */
+    rgba(209, 250, 229, 0.5) 25%,   /* Mint light */
+    rgba(252, 248, 243, 0.5) 50%,   /* Cream */
+    rgba(243, 244, 246, 0.5) 75%,   /* Light gray */
+    rgba(236, 253, 245, 0.6) 100%   /* Mint again */
+  );
+  animation: gradient-wave 20s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Dark Mode Gradient Wave */
+[data-theme="dark"] .gradient-wave-background::before {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,      /* Slate-900 */
+    rgba(30, 41, 59, 0.9) 25%,      /* Slate-800 */
+    rgba(51, 65, 85, 0.85) 50%,     /* Slate-700 */
+    rgba(30, 41, 59, 0.9) 75%,      /* Slate-800 */
+    rgba(15, 23, 42, 0.95) 100%     /* Slate-900 */
+  );
+}
+
+/* Secondary gradient layer for depth */
+[data-theme="light"] .gradient-wave-background::after,
+.gradient-wave-background::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    rgba(16, 185, 129, 0.08) 0%,    /* Emerald-500 */
+    rgba(5, 150, 105, 0.05) 30%,    /* Emerald-600 */
+    transparent 70%
+  );
+  animation: gradient-wave 25s ease-in-out infinite reverse;
+  mix-blend-mode: overlay;
+}
+
+[data-theme="dark"] .gradient-wave-background::after {
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    rgba(16, 185, 129, 0.15) 0%,
+    rgba(5, 150, 105, 0.1) 30%,
+    transparent 70%
+  );
+}
+
+/* Wave Animation */
+@keyframes gradient-wave {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(2deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(-2deg) scale(1.05);
+  }
+}
+
+/* Subtle pulse for ambient effect */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  [data-theme="light"] .gradient-wave-background::before,
+  .gradient-wave-background::before {
+    animation-duration: 15s; /* Faster on mobile for better performance */
+  }
+  
+  .gradient-wave-background::after {
+    animation-duration: 18s;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-wave-background::before,
+  .gradient-wave-background::after {
+    animation: none;
+  }
+}
+
+/* Base background color fallback */
+.gradient-wave-background {
+  background: var(--bg-primary, #ffffff);
+}
+
+[data-theme="dark"] .gradient-wave-background {
+  background: var(--bg-primary, #0f172a);
+}

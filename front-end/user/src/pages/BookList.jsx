@@ -71,71 +71,56 @@ const BookList = () => {
   return (
     <div className="books-page">
       <div className="container">
-        {/* Page Header */}
-        <div className="page-header">
-          <div className="header-content">
-            <div className="header-icon">
-              <i className="fas fa-book-open"></i>
-            </div>
-            <div className="header-text">
-              <h1>Thư Viện Sách</h1>
-              <p>Khám phá <strong>{totalBooks}</strong> đầu sách trong bộ sưu tập</p>
-            </div>
+        {/* Hero Section - Centered */}
+        <div className="hero-section-minimal">
+          <div className="hero-content-minimal">
+            <i className="fas fa-book-open hero-icon-minimal"></i>
+            <h1 className="hero-title-minimal">Thư Viện Sách</h1>
+            <p className="hero-subtitle-minimal">
+              Khám phá <strong>{totalBooks}</strong> đầu sách trong bộ sưu tập
+            </p>
           </div>
         </div>
 
-        {/* Filters and Search */}
-        <div className="filters-section">
-          <div className="filter-header">
-            <h3><i className="fas fa-filter"></i> Tìm kiếm & Lọc</h3>
-          </div>
-          
-          <form onSubmit={handleSearch} className="search-box">
-            <div className="search-input-wrapper">
-              <i className="fas fa-search search-icon"></i>
+        {/* Search Zone Card - Single Card */}
+        <div className="search-zone-card">
+          <form onSubmit={handleSearch} className="search-zone-form">
+            <div className="search-input-zone">
+              <i className="fas fa-search search-icon-zone"></i>
               <input
                 type="text"
-                className="form-control"
+                className="search-input-zone-text"
                 placeholder="Tìm kiếm theo tên sách, tác giả, nhà xuất bản..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              <i className="fas fa-search"></i> Tìm kiếm
+            
+            <select 
+              className="sort-select-zone" 
+              value={sortBy} 
+              onChange={handleSortChange}
+            >
+              <option value="createdAt">Ngày thêm</option>
+              <option value="title">Tên sách</option>
+              <option value="author">Tác giả</option>
+              <option value="publication_year">Năm xuất bản</option>
+            </select>
+
+            <select 
+              className="order-select-zone" 
+              value={order} 
+              onChange={handleOrderChange}
+            >
+              <option value="desc">Giảm dần</option>
+              <option value="asc">Tăng dần</option>
+            </select>
+
+            <button type="submit" className="btn-search-zone">
+              <i className="fas fa-search"></i>
+              Tìm kiếm
             </button>
           </form>
-
-          <div className="sort-controls">
-            <div className="sort-label">
-              <i className="fas fa-sort-amount-down"></i> Sắp xếp theo:
-            </div>
-            <div className="sort-options">
-              <div className="form-group">
-                <select 
-                  className="form-control" 
-                  value={sortBy} 
-                  onChange={handleSortChange}
-                >
-                  <option value="createdAt">Ngày thêm</option>
-                  <option value="title">Tên sách</option>
-                  <option value="author">Tác giả</option>
-                  <option value="publication_year">Năm xuất bản</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <select 
-                  className="form-control" 
-                  value={order} 
-                  onChange={handleOrderChange}
-                >
-                  <option value="desc">Giảm dần</option>
-                  <option value="asc">Tăng dần</option>
-                </select>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Books Grid */}

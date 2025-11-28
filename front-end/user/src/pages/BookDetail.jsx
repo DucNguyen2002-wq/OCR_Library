@@ -107,6 +107,11 @@ export default function BookDetail() {
           <span className="current">{book.title}</span>
         </nav>
 
+        {/* Back Button */}
+        <Link to="/books" className="back-btn">
+          <i className="fas fa-arrow-left"></i> Quay lại danh sách
+        </Link>
+
         {/* Book Detail Content */}
         <div className="book-detail-container">
           {/* Left: Images */}

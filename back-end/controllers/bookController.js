@@ -1,4 +1,4 @@
-const bookHelpers = require("../bookHelpers");
+const bookHelpers = require("../helpers/bookHelpers");
 const Book = require("../models/Book");
 const { createNotification } = require("./notificationController");
 

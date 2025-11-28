@@ -8,7 +8,25 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-            <h5 className="footer-title">BookLibrary</h5>
+            <h5 className="footer-title">
+              <span style={{ 
+                background: 'linear-gradient(135deg, #059669 0%, #047857 100%)', 
+                color: '#fff', 
+                padding: '0.25rem 0.625rem', 
+                borderRadius: '4px 0 0 4px',
+                fontWeight: '700',
+                letterSpacing: '0.5px'
+              }}>Book</span>
+              <span style={{ 
+                background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)', 
+                color: '#064E3B', 
+                padding: '0.25rem 0.625rem', 
+                marginLeft: '-4px',
+                borderRadius: '0 4px 4px 0',
+                fontWeight: '700',
+                letterSpacing: '0.5px'
+              }}>Library</span>
+            </h5>
             <p className="footer-text">
               Your online library management system. Discover, share, and manage books with ease.
             </p>

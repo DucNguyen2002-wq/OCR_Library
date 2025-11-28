@@ -4,13 +4,15 @@ import './BookCoverUploader.css';
 
 const BookCoverUploader = ({ onDataExtracted, onClose }) => {
   const [covers, setCovers] = useState({
-    spine: null,    // Thay front → spine
+    front: null,
+    spine: null,
     inside: null,
     back: null
   });
 
   const [previews, setPreviews] = useState({
-    spine: null,    // Thay front → spine
+    front: null,
+    spine: null,
     inside: null,
     back: null
   });
@@ -19,21 +21,27 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
   const [error, setError] = useState('');
   const [extractedData, setExtractedData] = useState(null);
   const [dragOver, setDragOver] = useState(null);
+  
+  // Detect mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   const fileInputRefs = {
-    spine: useRef(null),    // Thay front → spine
+    front: useRef(null),
+    spine: useRef(null),
     inside: useRef(null),
     back: useRef(null)
   };
 
   const coverLabels = {
-    spine: 'Gáy sách',      // Thay "Bìa trước" → "Gáy sách"
+    front: 'Bìa trước',
+    spine: 'Gáy sách',
     inside: 'Bìa trong',
     back: 'Bìa sau'
   };
 
   const coverDescriptions = {
-    spine: 'Tên sách + tác giả',    // Thay mô tả
+    front: 'Bìa chính của sách',
+    spine: 'Tên sách + tác giả',
     inside: 'ISBN, NXB, năm xuất bản',
     back: 'Tóm tắt nội dung'
   };
@@ -97,7 +105,7 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
 
   const handleScan = async () => {
     // Check if at least one cover is uploaded
-    if (!covers.spine && !covers.inside && !covers.back) {
+    if (!covers.front && !covers.spine && !covers.inside && !covers.back) {
       setError('Vui lòng tải lên ít nhất 1 ảnh bìa sách');
       return;
     }
@@ -137,8 +145,8 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
   };
 
   const handleReset = () => {
-    setCovers({ spine: null, inside: null, back: null });
-    setPreviews({ spine: null, inside: null, back: null });
+    setCovers({ front: null, spine: null, inside: null, back: null });
+    setPreviews({ front: null, spine: null, inside: null, back: null });
     setExtractedData(null);
     setError('');
     Object.values(fileInputRefs).forEach(ref => {
@@ -195,9 +203,9 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
                 </div>
               ) : (
                 <div className="upload-placeholder">
-                  <span className="upload-icon">📷</span>
-                  <p>Kéo thả ảnh vào đây</p>
-                  <p className="upload-hint">hoặc click để chọn file</p>
+                  <span className="upload-icon">{isMobile ? '📸' : '📷'}</span>
+                  <p>{isMobile ? 'Chụp ảnh hoặc chọn từ thư viện' : 'Kéo thả ảnh vào đây'}</p>
+                  <p className="upload-hint">{isMobile ? 'Click để mở camera' : 'hoặc click để chọn file'}</p>
                 </div>
               )}
               
@@ -205,6 +213,7 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
                 ref={fileInputRefs[coverType]}
                 type="file"
                 accept="image/*"
+                capture="environment"
                 onChange={(e) => handleFileInputChange(coverType, e)}
                 style={{ display: 'none' }}
               />
@@ -220,6 +229,15 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
           {/* Hiển thị ảnh đã upload */}
           {extractedData.bookData.coverImages && (
             <div className="uploaded-covers-preview">
+              {extractedData.bookData.coverImages.front && (
+                <div className="uploaded-cover-item">
+                  <label>Bìa trước</label>
+                  <img 
+                    src={`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}${extractedData.bookData.coverImages.front}`} 
+                    alt="Bìa trước" 
+                  />
+                </div>
+              )}
               {extractedData.bookData.coverImages.spine && (
                 <div className="uploaded-cover-item">
                   <label>Gáy sách</label>
@@ -333,7 +351,7 @@ const BookCoverUploader = ({ onDataExtracted, onClose }) => {
               type="button"
               className="btn btn-primary"
               onClick={handleScan}
-              disabled={loading || (!covers.spine && !covers.inside && !covers.back)}
+              disabled={loading || (!covers.front && !covers.spine && !covers.inside && !covers.back)}
             >
               {loading ? (
                 <>

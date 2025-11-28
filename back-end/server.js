@@ -6,7 +6,7 @@ const helmet = require("helmet");
 require("dotenv").config();
 
 // Import MongoDB connection
-const { connectDB } = require("./db");
+const { connectDB } = require("./config/db");
 
 // Import Swagger
 const { setupSwagger } = require("./config/swagger");

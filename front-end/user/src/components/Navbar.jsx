@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import NotificationDropdown from './NotificationDropdown';
-import './Navbar.css';
+import ThemeToggle from './ThemeToggle';
+import './Navbar-LayoutC.css';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
+  const [showReportMenu, setShowReportMenu] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -23,21 +25,34 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Topbar */}
-      <div className="topbar bg-secondary py-2">
+      {/* Topbar - Minimal */}
+      <div className="topbar-minimal">
         <div className="container">
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="topbar-links">
+          <div className="topbar-content">
+            {/* Logo */}
+            <Link to="/" className="navbar-brand-minimal">
+              <span className="brand-multi">Book</span>
+              <span className="brand-shop">Library</span>
+            </Link>
+
+            {/* Topbar Links */}
+            <div className="topbar-links-minimal">
               <Link to="/about">About</Link>
+              <span className="separator">|</span>
               <Link to="/contact">Contact</Link>
+              <span className="separator">|</span>
               <Link to="/help">Help</Link>
             </div>
-            <div className="topbar-account">
+
+            {/* User Account */}
+            <div className="topbar-account-minimal">
               {user ? (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <>
+                  <ThemeToggle />
                   <NotificationDropdown />
                   <div className="dropdown">
-                    <button className="btn btn-sm btn-light dropdown-toggle">
+                    <button className="btn-user-minimal">
+                      <i className="fas fa-user-circle"></i>
                       {user.name}
                     </button>
                     <div className="dropdown-menu">
@@ -50,11 +65,12 @@ const Navbar = () => {
                       <button onClick={handleLogout} className="dropdown-item">Logout</button>
                     </div>
                   </div>
-                </div>
+                </>
               ) : (
-                <div className="auth-buttons">
-                  <Link to="/login" className="btn btn-sm btn-light">Sign In</Link>
-                  <Link to="/register" className="btn btn-sm btn-light ml-2">Sign Up</Link>
+                <div className="auth-buttons-minimal">
+                  <ThemeToggle />
+                  <Link to="/login" className="btn-auth">Sign In</Link>
+                  <Link to="/register" className="btn-auth">Sign Up</Link>
                 </div>
               )}
             </div>
@@ -62,60 +78,84 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="navbar bg-light py-3">
+      {/* Header with Large Search */}
+      <div className="header-search">
         <div className="container">
-          <div className="d-flex justify-content-between align-items-center w-100">
-            {/* Logo */}
-            <Link to="/" className="navbar-brand">
-              <span className="brand-multi text-primary bg-dark px-2">Book</span>
-              <span className="brand-shop text-dark bg-primary px-2 ml-n1">Library</span>
-            </Link>
-
-            {/* Search */}
-            <form onSubmit={handleSearch} className="search-form">
-              <div className="input-group">
-                <input 
-                  type="text" 
-                  className="form-control" 
-                  placeholder="Search for books..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <div className="input-group-append">
-                  <button type="submit" className="btn bg-transparent text-primary">
-                    <i className="fas fa-search"></i>
-                  </button>
-                </div>
-              </div>
+          <div className="header-search-content">
+            {/* Search Form - Large */}
+            <form onSubmit={handleSearch} className="search-form-large">
+              <i className="fas fa-search search-icon-large"></i>
+              <input 
+                type="text" 
+                className="search-input-large" 
+                placeholder="Tìm kiếm sách, tác giả, nhà xuất bản..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button type="submit" className="btn-search-large">
+                <i className="fas fa-search"></i>
+              </button>
             </form>
 
-            {/* Contact Info */}
-            <div className="contact-info text-right">
-              <p className="mb-0">Library Service</p>
-              <h6 className="mb-0">+84 123 456 789</h6>
+            {/* Contact Info - Compact */}
+            <div className="contact-info-minimal">
+              <i className="fas fa-phone-alt"></i>
+              <span>+84 123 456 789</span>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
 
-      {/* Navigation Menu */}
-      <div className="nav-menu bg-dark">
+      {/* Navigation Menu - Dot Separated */}
+      <div className="nav-menu-minimal">
         <div className="container">
-          <div className="d-flex align-items-center">
-            <Link to="/books" className="nav-link text-light">
-              <i className="fas fa-book mr-2"></i>
+          <div className="nav-items-minimal">
+            <Link to="/books" className="nav-link-minimal">
+              <i className="fas fa-book"></i>
               All Books
             </Link>
-            <Link to="/categories" className="nav-link text-light">
-              <i className="fas fa-list mr-2"></i>
+            <span className="nav-dot">•</span>
+            <Link to="/categories" className="nav-link-minimal">
+              <i className="fas fa-th-large"></i>
               Categories
             </Link>
             {user && (
-              <Link to="/add-book" className="nav-link text-light">
-                <i className="fas fa-plus mr-2"></i>
-                Add Book
-              </Link>
+              <>
+                <span className="nav-dot">•</span>
+                <Link to="/add-book" className="nav-link-minimal">
+                  <i className="fas fa-plus-circle"></i>
+                  Add Book
+                </Link>
+                <span className="nav-dot">•</span>
+                <div 
+                  className="report-dropdown-minimal"
+                  onMouseEnter={() => setShowReportMenu(true)}
+                  onMouseLeave={() => setShowReportMenu(false)}
+                >
+                  <div className="nav-link-minimal">
+                    <i className="fas fa-flag"></i>
+                    Báo cáo
+                  </div>
+                  {showReportMenu && (
+                    <div className="report-menu-minimal">
+                      <Link to="/reports/updates" className="report-menu-item-minimal">
+                        <i className="fas fa-sync-alt"></i>
+                        <div>
+                          <strong>Cập nhật</strong>
+                          <small>Yêu cầu cập nhật thông tin sách</small>
+                        </div>
+                      </Link>
+                      <Link to="/reports/delete-requests" className="report-menu-item-minimal">
+                        <i className="fas fa-trash-alt"></i>
+                        <div>
+                          <strong>Yêu cầu xóa</strong>
+                          <small>Gửi yêu cầu xóa sách</small>
+                        </div>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </>
             )}
           </div>
         </div>

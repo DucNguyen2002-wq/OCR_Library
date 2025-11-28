@@ -1,0 +1,244 @@
+/* ============================================
+   FOOTER - MINIMAL MONOCHROME DESIGN
+   Clean, Organized, Professional
+   ============================================ */
+
+.footer {
+  background: var(--dark);
+  color: var(--gray-400);
+  padding: var(--space-16) 0 var(--space-8);
+  border-top: 1px solid var(--gray-800);
+  margin-top: auto;
+}
+
+.footer .container {
+  max-width: 1280px;
+}
+
+/* ============================================
+   FOOTER SECTIONS
+   ============================================ */
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.footer-subtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--gray-400);
+  margin-bottom: var(--space-6);
+  max-width: 320px;
+}
+
+/* ============================================
+   SOCIAL LINKS - Minimal Icons
+   ============================================ */
+
+.social-links {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--gray-700);
+  border-radius: var(--radius-sm);
+  color: var(--gray-400);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background: var(--white);
+  color: var(--dark);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   FOOTER MENU - Clean Lists
+   ============================================ */
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-menu li a {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: inline-block;
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.footer-menu li a::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.footer-menu li a:hover {
+  color: var(--white);
+  padding-left: var(--space-5);
+}
+
+.footer-menu li a:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   FOOTER CONTACT - Icon List
+   ============================================ */
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+  color: var(--gray-400);
+}
+
+.footer-contact li i {
+  color: var(--primary);
+  width: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 1em;
+}
+
+.footer-contact li span {
+  line-height: 1.6;
+}
+
+/* ============================================
+   FOOTER DIVIDER
+   ============================================ */
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--gray-800);
+  margin: var(--space-12) 0 var(--space-8);
+}
+
+/* ============================================
+   FOOTER BOTTOM - Copyright & Links
+   ============================================ */
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.footer-bottom-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-6);
+  justify-content: flex-end;
+}
+
+.footer-bottom-menu li {
+  display: inline-block;
+}
+
+.footer-bottom-menu li a {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-bottom-menu li a:hover {
+  color: var(--white);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 991px) {
+  .footer {
+    padding: var(--space-12) 0 var(--space-6);
+  }
+  
+  .footer .row > div {
+    margin-bottom: var(--space-8);
+  }
+  
+  .footer .row > div:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: var(--space-10) 0 var(--space-6);
+  }
+  
+  .footer-title {
+    font-size: 1.125rem;
+  }
+  
+  .footer-text {
+    max-width: 100%;
+  }
+  
+  .social-links {
+    justify-content: flex-start;
+  }
+  
+  .footer-divider {
+    margin: var(--space-8) 0 var(--space-6);
+  }
+  
+  .copyright {
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+  
+  .footer-bottom-menu {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+}

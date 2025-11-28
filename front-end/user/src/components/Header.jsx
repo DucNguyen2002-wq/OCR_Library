@@ -28,7 +28,27 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo">📚 Thư viện sách</Link>
+        <Link to="/" className="logo" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+          <span style={{ 
+            background: 'linear-gradient(135deg, #059669 0%, #047857 100%)', 
+            color: '#fff', 
+            padding: '0.3rem 0.625rem', 
+            borderRadius: '4px 0 0 4px',
+            fontWeight: '700',
+            fontSize: '1.25rem',
+            letterSpacing: '0.5px'
+          }}>📚 Book</span>
+          <span style={{ 
+            background: 'linear-gradient(135deg, #34D399 0%, #059669 100%)', 
+            color: '#064E3B', 
+            padding: '0.3rem 0.625rem', 
+            marginLeft: '-4px',
+            borderRadius: '0 4px 4px 0',
+            fontWeight: '700',
+            fontSize: '1.25rem',
+            letterSpacing: '0.5px'
+          }}>Library</span>
+        </Link>
         <nav>
           <Link to="/">Trang chủ</Link>
           <Link to="/books">Danh sách</Link>

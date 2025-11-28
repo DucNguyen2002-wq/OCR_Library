@@ -2,14 +2,17 @@ import client from './client';
 
 /**
  * Upload book cover images to server
- * @param {Object} covers - Object with spine, inside, back image files
+ * @param {Object} covers - Object with front, spine, inside, back image files
  * @returns {Promise} Response with uploaded file info
  */
 export const uploadBookCovers = async (covers) => {
   try {
     const formData = new FormData();
     
-    // Add each cover if it exists (thay front → spine)
+    // Add each cover if it exists
+    if (covers.front) {
+      formData.append('front', covers.front);
+    }
     if (covers.spine) {
       formData.append('spine', covers.spine);
     }
@@ -35,16 +38,18 @@ export const uploadBookCovers = async (covers) => {
 
 /**
  * Scan uploaded book covers and extract book information
- * @param {Object} filenames - Object with spine, inside, back filenames
+ * @param {Object} filenames - Object with front, spine, inside, back filenames
  * @returns {Promise} Response with extracted book data
  */
 export const scanBookCovers = async (filenames) => {
   try {
     const response = await client.post('/ocr/book-covers', {
-      spine: filenames.spine || null,    // Thay front → spine
+      front: filenames.front || null,
+      spine: filenames.spine || null,
       inside: filenames.inside || null,
       back: filenames.back || null,
-      languages: 'vi,en'
+      languages: 'vi,en',
+      usePerplexity: true
     });
 
     return response.data;
@@ -80,7 +85,7 @@ export const uploadSingleCover = async (image) => {
 /**
  * Scan a single uploaded cover
  * @param {string} filename - Filename of uploaded image
- * @param {string} coverType - Type of cover (front, inside, back)
+ * @param {string} coverType - Type of cover (front, spine, inside, back)
  * @returns {Promise} Response with extracted data
  */
 export const scanSingleCover = async (filename, coverType = 'front') => {
@@ -100,7 +105,7 @@ export const scanSingleCover = async (filename, coverType = 'front') => {
 
 /**
  * Complete workflow: Upload + Scan book covers
- * @param {Object} covers - Object with spine, inside, back image files
+ * @param {Object} covers - Object with front, spine, inside, back image files
  * @returns {Promise} Response with extracted book data
  */
 export const uploadAndScanBookCovers = async (covers) => {
@@ -113,8 +118,9 @@ export const uploadAndScanBookCovers = async (covers) => {
       throw new Error(uploadResult.message || 'Upload failed');
     }
 
-    // Extract filenames from upload result (thay front → spine)
+    // Extract filenames from upload result
     const filenames = {
+      front: uploadResult.data.front?.filename || null,
       spine: uploadResult.data.spine?.filename || null,
       inside: uploadResult.data.inside?.filename || null,
       back: uploadResult.data.back?.filename || null
@@ -125,12 +131,13 @@ export const uploadAndScanBookCovers = async (covers) => {
     // Step 2: Scan uploaded images
     const scanResult = await scanBookCovers(filenames);
 
-    // Add image URLs to result (thay front → spine)
+    // Use Cloudinary URLs from scan result if available, otherwise use upload URLs
     if (scanResult.success && scanResult.bookData) {
       scanResult.bookData.coverImages = {
-        spine: uploadResult.data.spine?.url || null,
-        inside: uploadResult.data.inside?.url || null,
-        back: uploadResult.data.back?.url || null
+        front: scanResult.cloudinaryUrls?.front || uploadResult.data.front?.url || null,
+        spine: scanResult.cloudinaryUrls?.spine || uploadResult.data.spine?.url || null,
+        inside: scanResult.cloudinaryUrls?.inside || uploadResult.data.inside?.url || null,
+        back: scanResult.cloudinaryUrls?.back || uploadResult.data.back?.url || null
       };
     }
 

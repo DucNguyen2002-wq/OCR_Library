@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: var(--bg-secondary, linear-gradient(135deg, #764ba2 0%, #667eea 100%));
   padding: 20px;
 }
 
@@ -11,15 +11,15 @@
   display: flex;
   max-width: 1100px;
   width: 100%;
-  background: #fff;
+  background: var(--bg-card, #fff);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-xl, 0 20px 60px rgba(0, 0, 0, 0.3));
 }
 
 .register-left {
   flex: 1;
-  background: linear-gradient(135deg, var(--primary) 0%, #e6c02e 100%);
+  background: var(--button-gradient, linear-gradient(135deg, var(--primary) 0%, #e6c02e 100%));
   padding: 60px 40px;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--bg-hover, rgba(255, 255, 255, 0.2));
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -96,12 +96,12 @@
 .register-header h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-primary, var(--dark));
   margin-bottom: 10px;
 }
 
 .register-header p {
-  color: #666;
+  color: var(--text-tertiary, #666);
 }
 
 .register-form .form-group {
@@ -111,31 +111,32 @@
 .register-form label {
   display: block;
   font-weight: 600;
-  color: var(--dark);
+  color: var(--text-primary, var(--dark));
   margin-bottom: 8px;
   font-size: 0.95rem;
 }
 
 .register-form label i {
   margin-right: 8px;
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
 }
 
 .register-form .form-control {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-light, #e0e0e0);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: #f8f9fa;
+  background: var(--bg-tertiary, #f8f9fa);
+  color: var(--text-primary, #1f2937);
 }
 
 .register-form .form-control:focus {
   outline: none;
-  border-color: var(--primary);
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(255, 211, 51, 0.1);
+  border-color: var(--accent-primary, var(--primary));
+  background: var(--bg-card, #fff);
+  box-shadow: 0 0 0 4px var(--focus-ring, rgba(255, 211, 51, 0.1));
 }
 
 .password-input-wrapper {
@@ -149,7 +150,7 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #999;
+  color: var(--text-light, #999);
   cursor: pointer;
   padding: 5px;
   font-size: 1.1rem;
@@ -157,14 +158,14 @@
 }
 
 .password-toggle:hover {
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
 }
 
 .form-text {
   display: block;
   margin-top: 5px;
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-light, #999);
 }
 
 .terms-checkbox {
@@ -173,7 +174,7 @@
   gap: 10px;
   cursor: pointer;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-tertiary, #666);
 }
 
 .terms-checkbox input {
@@ -182,7 +183,7 @@
 }
 
 .terms-checkbox a {
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
   text-decoration: none;
 }
 
@@ -212,12 +213,12 @@
 .signin-link {
   text-align: center;
   margin-top: 20px;
-  color: #666;
+  color: var(--text-tertiary, #666);
   font-size: 0.95rem;
 }
 
 .signin-link a {
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
   font-weight: 600;
   text-decoration: none;
 }

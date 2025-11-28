@@ -1,16 +1,16 @@
 .rejected-books-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--bg-secondary, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   padding: 2rem 0;
 }
 
 .rejected-books-header {
-  background: white;
+  background: var(--bg-card, white);
   border-radius: 15px;
   margin: 0 auto 2rem;
   max-width: 1200px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm, 0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .header-content {
@@ -24,30 +24,30 @@
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
 }
 
 .breadcrumb a {
-  color: #667eea;
+  color: var(--accent-primary, #667eea);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .breadcrumb a:hover {
-  color: #764ba2;
+  color: var(--accent-secondary, #764ba2);
 }
 
 .breadcrumb .separator {
-  color: #cbd5e1;
+  color: var(--border-light, #cbd5e1);
 }
 
 .breadcrumb .current {
-  color: #1e293b;
+  color: var(--text-primary, #1e293b);
   font-weight: 500;
 }
 
 .rejected-books-header h1 {
-  color: #1e293b;
+  color: var(--text-primary, #1e293b);
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 1rem;
@@ -63,7 +63,7 @@
 }
 
 .rejected-books-header .subtitle {
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
   font-size: 1.1rem;
   margin: 0;
 }
@@ -104,11 +104,11 @@
 
 /* Empty State */
 .empty-state {
-  background: white;
+  background: var(--bg-card, white);
   border-radius: 15px;
   padding: 4rem 2rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm, 0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .empty-icon {
@@ -118,13 +118,13 @@
 }
 
 .empty-state h3 {
-  color: #1e293b;
+  color: var(--text-primary, #1e293b);
   font-size: 1.8rem;
   margin: 0 0 1rem;
 }
 
 .empty-state p {
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
   font-size: 1.1rem;
   margin: 0 0 2rem;
 }
@@ -133,32 +133,32 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--button-gradient, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   color: white;
   padding: 0.875rem 2rem;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s;
-  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+  box-shadow: var(--shadow-sm, 0 4px 6px rgba(102, 126, 234, 0.3));
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-md, 0 6px 12px rgba(102, 126, 234, 0.4));
   color: white;
 }
 
 /* Results Info */
 .results-info {
-  background: white;
+  background: var(--bg-card, white);
   border-radius: 10px;
   padding: 1rem 1.5rem;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .count-badge {
@@ -171,7 +171,7 @@
 }
 
 .count-text {
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
   font-weight: 500;
 }
 
@@ -183,13 +183,13 @@
 }
 
 .rejected-book-card {
-  background: white;
+  background: var(--bg-card, white);
   border-radius: 15px;
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm, 0 4px 6px rgba(0, 0, 0, 0.1));
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
@@ -207,7 +207,7 @@
 
 .rejected-book-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md, 0 8px 16px rgba(0, 0, 0, 0.15));
 }
 
 /* Book Image */
@@ -215,7 +215,7 @@
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: #f1f5f9;
+  background: var(--bg-tertiary, #f1f5f9);
   height: 280px;
 }
 
@@ -232,7 +232,7 @@
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  color: #cbd5e1;
+  color: var(--border-light, #cbd5e1);
 }
 
 .status-badge {
@@ -262,7 +262,7 @@
 }
 
 .book-title {
-  color: #1e293b;
+  color: var(--text-primary, #1e293b);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
@@ -279,16 +279,16 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
   font-size: 0.95rem;
 }
 
 .meta-item i {
-  color: #667eea;
+  color: var(--accent-primary, #667eea);
 }
 
 .book-description {
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
   line-height: 1.6;
   margin: 0;
 }
@@ -355,25 +355,25 @@
 }
 
 .btn-resubmit {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--button-gradient, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   color: white;
-  box-shadow: 0 4px 6px rgba(102, 126, 234, 0.3);
+  box-shadow: var(--shadow-sm, 0 4px 6px rgba(102, 126, 234, 0.3));
 }
 
 .btn-resubmit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-md, 0 6px 12px rgba(102, 126, 234, 0.4));
   color: white;
 }
 
 .btn-view {
-  background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  background: var(--bg-card, white);
+  color: var(--accent-primary, #667eea);
+  border: 2px solid var(--accent-primary, #667eea);
 }
 
 .btn-view:hover {
-  background: #667eea;
+  background: var(--accent-primary, #667eea);
   color: white;
   transform: translateY(-2px);
 }
@@ -386,9 +386,9 @@
   gap: 1rem;
   margin-top: 2rem;
   padding: 1.5rem;
-  background: white;
+  background: var(--bg-card, white);
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .pagination-btn {
@@ -396,7 +396,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--button-gradient, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   color: white;
   border: none;
   border-radius: 8px;
@@ -407,7 +407,7 @@
 
 .pagination-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+  box-shadow: var(--shadow-sm, 0 4px 8px rgba(102, 126, 234, 0.3));
 }
 
 .pagination-btn:disabled {
@@ -416,7 +416,7 @@
 }
 
 .pagination-info {
-  color: #64748b;
+  color: var(--text-tertiary, #64748b);
   font-weight: 600;
   padding: 0 1rem;
 }

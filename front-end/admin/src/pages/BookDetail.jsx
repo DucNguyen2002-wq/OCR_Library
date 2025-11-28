@@ -277,6 +277,12 @@ export default function BookDetail() {
                         <th style={{ color: '#6c757d' }}>Tác giả:</th>
                         <td>{authors}</td>
                       </tr>
+                      {book.translator && (
+                        <tr>
+                          <th style={{ color: '#6c757d' }}>Người dịch:</th>
+                          <td>{book.translator}</td>
+                        </tr>
+                      )}
                       <tr>
                         <th style={{ color: '#6c757d' }}>Nhà xuất bản:</th>
                         <td>{book.publisher || 'Chưa rõ'}</td>

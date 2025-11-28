@@ -12,6 +12,7 @@ export default function AddBook() {
   const [form, setForm] = useState({
     title: '',
     authors: '',
+    translator: '',
     publisher: '',
     year_published: '',
     isbn: '',
@@ -28,15 +29,14 @@ export default function AddBook() {
     setForm(prev => ({
       ...prev,
       title: bookData.title || prev.title,
-      authors: bookData.author ? bookData.author.join(', ') : prev.authors,
+      authors: bookData.authors ? bookData.authors.join(', ') : prev.authors,
+      translator: bookData.translator || prev.translator,
       publisher: bookData.publisher || prev.publisher,
       year_published: bookData.year_published || prev.year_published,
       isbn: bookData.isbn || prev.isbn,
       description: bookData.description || prev.description,
-      // Use spine cover image as cover_front_url (thay front → spine)
-      cover_front_url: bookData.coverImages?.spine 
-        ? `${import.meta.env.VITE_API_URL || 'http://localhost:3000'}${bookData.coverImages.spine}`
-        : prev.cover_front_url
+      // Ưu tiên front cover, fallback sang spine cover (already full URL from Cloudinary or server)
+      cover_front_url: bookData.coverImages?.front || bookData.coverImages?.spine || prev.cover_front_url
     }));
     
     setShowOCRUploader(false);
@@ -60,6 +60,7 @@ export default function AddBook() {
       const payload = {
         title: form.title.trim(),
         authors: authorsArray,
+        translator: form.translator.trim() || undefined,
         publisher: form.publisher.trim() || undefined,
         year_published: form.year_published ? parseInt(form.year_published) : undefined,
         isbn: form.isbn.trim() || undefined,
@@ -94,37 +95,28 @@ export default function AddBook() {
   return (
     <div className="add-book-page">
       <div className="container">
-        {/* Breadcrumb */}
-        <nav className="breadcrumb">
-          <Link to="/">
-            <i className="fas fa-home"></i> Trang chủ
-          </Link>
-          <span className="separator">/</span>
-          <Link to="/books">Danh sách</Link>
-          <span className="separator">/</span>
-          <span className="current">Thêm sách</span>
-        </nav>
-
-        {/* Page Header */}
-        <div className="page-header">
-          <Link to="/books" className="back-btn">
-            <i className="fas fa-arrow-left"></i> Quay lại
-          </Link>
-          <h1 className="page-title">
-            <i className="fas fa-plus-circle"></i> Thêm sách mới
-          </h1>
-          <p className="page-subtitle">
-            Sách sẽ được gửi tới admin để kiểm duyệt trước khi xuất bản
-          </p>
-          
-          {/* OCR Scan Button */}
-          <button
-            type="button"
-            className="btn btn-ocr"
-            onClick={() => setShowOCRUploader(true)}
-          >
-            <i className="fas fa-camera"></i> Quét bìa sách tự động (OCR)
-          </button>
+        {/* Hero Section - Centered */}
+        <div className="hero-section-minimal">
+          <div className="hero-content-minimal">
+            <i className="fas fa-plus-circle hero-icon-minimal"></i>
+            <h1 className="hero-title-minimal">Thêm Sách Mới</h1>
+            
+            {/* Action Buttons */}
+            <div className="hero-actions">
+              <button
+                type="button"
+                className="btn-ocr-hero"
+                onClick={() => setShowOCRUploader(true)}
+              >
+                <i className="fas fa-camera"></i>
+                Quét bìa sách (OCR)
+              </button>
+              <Link to="/books" className="btn-back-hero">
+                <i className="fas fa-arrow-left"></i>
+                Quay lại
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* OCR Modal */}
@@ -145,9 +137,9 @@ export default function AddBook() {
           </div>
         )}
 
-        {/* Form */}
-        <div className="form-container">
-          <form className="book-form" onSubmit={handleSubmit}>
+        {/* Form Container - Clean Card */}
+        <div className="form-container-minimal">
+            <form className="book-form" onSubmit={handleSubmit}>
             <div className="form-section">
               <h3 className="section-title">
                 <i className="fas fa-info-circle"></i> Thông tin cơ bản
@@ -185,6 +177,21 @@ export default function AddBook() {
                 <small className="form-text">
                   Ví dụ: Nguyễn Nhật Ánh, Tô Hoài
                 </small>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="translator">
+                  Người dịch <span className="hint">(nếu có)</span>
+                </label>
+                <input
+                  id="translator"
+                  name="translator"
+                  type="text"
+                  className="form-control"
+                  value={form.translator}
+                  onChange={handleChange}
+                  placeholder="Nguyễn Văn C"
+                />
               </div>
 
               <div className="form-row">
@@ -310,9 +317,13 @@ export default function AddBook() {
                   </>
                 )}
               </button>
-              <Link to="/books" className="btn btn-secondary">
-                <i className="fas fa-times"></i> Hủy
-              </Link>
+              <button 
+                type="button" 
+                className="btn btn-secondary"
+                onClick={() => window.location.reload()}
+              >
+                <i className="fas fa-redo"></i> Làm mới
+              </button>
             </div>
 
             <div className="info-box">

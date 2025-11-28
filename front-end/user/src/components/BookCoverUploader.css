@@ -41,7 +41,7 @@
 
 .upload-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
@@ -320,13 +320,20 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .upload-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .book-cover-uploader {
     padding: 1.5rem;
   }
 
   .upload-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .uploader-header h2 {
@@ -344,5 +351,11 @@
   .btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-grid {
+    grid-template-columns: 1fr;
   }
 }

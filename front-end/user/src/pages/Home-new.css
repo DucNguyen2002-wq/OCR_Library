@@ -1,0 +1,340 @@
+/* ============================================
+   HOME PAGE - MINIMAL MONOCHROME DESIGN
+   Clean, Modern, Professional
+   ============================================ */
+
+.home {
+  background: var(--bg-secondary);
+}
+
+/* ============================================
+   HERO SECTION - Bold & Spacious
+   ============================================ */
+
+.hero-section {
+  background: var(--white);
+  padding: var(--space-20) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: var(--space-6);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.hero-title span {
+  color: var(--primary);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--gray-600);
+  margin-bottom: var(--space-10);
+  line-height: 1.7;
+  max-width: 540px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: var(--space-4) var(--space-8);
+  font-size: 1rem;
+}
+
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+/* ============================================
+   FEATURES SECTION - Clean Grid
+   ============================================ */
+
+.features-section {
+  padding: var(--space-20) 0;
+  background: var(--bg-secondary);
+}
+
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: var(--space-10);
+  text-align: center;
+  transition: all var(--transition-base);
+  height: 100%;
+}
+
+.feature-card:hover {
+  border-color: var(--dark);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--dark);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+  color: var(--white);
+  font-size: 1.75rem;
+  transition: all var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.02em;
+}
+
+.feature-card p {
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   FEATURED BOOKS SECTION
+   ============================================ */
+
+.featured-section {
+  padding: var(--space-20) 0;
+  background: var(--white);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-12);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--gray-700);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.view-all-link:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateX(4px);
+}
+
+.view-all-link i {
+  font-size: 0.875em;
+  transition: transform var(--transition-fast);
+}
+
+.view-all-link:hover i {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   CALL TO ACTION SECTION
+   ============================================ */
+
+.cta-section {
+  background: var(--dark);
+  color: var(--white);
+  padding: var(--space-20) 0;
+  text-align: center;
+  border-top: 1px solid var(--gray-800);
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.03em;
+}
+
+.cta-section p {
+  font-size: 1.125rem;
+  color: var(--gray-400);
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-section .btn-light {
+  background: var(--white);
+  color: var(--dark);
+  border-color: var(--white);
+  padding: var(--space-4) var(--space-10);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cta-section .btn-light:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+
+.featured-section .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 3px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 991px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .hero-section {
+    padding: var(--space-16) 0;
+  }
+  
+  .features-section,
+  .featured-section,
+  .cta-section {
+    padding: var(--space-16) 0;
+  }
+  
+  .section-header h2 {
+    font-size: 1.875rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding: var(--space-12) 0;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: var(--space-4);
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: var(--space-8);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-image {
+    margin-top: var(--space-8);
+    padding: var(--space-4);
+  }
+  
+  .features-section,
+  .featured-section {
+    padding: var(--space-12) 0;
+  }
+  
+  .feature-card {
+    padding: var(--space-8);
+    margin-bottom: var(--space-6);
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .view-all-link {
+    align-self: stretch;
+    justify-content: center;
+  }
+  
+  .cta-section {
+    padding: var(--space-12) 0;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.75rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+}

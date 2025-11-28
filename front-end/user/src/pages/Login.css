@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--bg-secondary, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
   padding: 20px;
 }
 
@@ -11,16 +11,16 @@
   display: flex;
   max-width: 1100px;
   width: 100%;
-  background: #fff;
+  background: var(--bg-card, #fff);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-xl, 0 20px 60px rgba(0, 0, 0, 0.3));
 }
 
 /* Left Side */
 .login-left {
   flex: 1;
-  background: linear-gradient(135deg, var(--primary) 0%, #e6c02e 100%);
+  background: var(--button-gradient, linear-gradient(135deg, var(--primary) 0%, #e6c02e 100%));
   padding: 60px 40px;
   display: flex;
   flex-direction: column;
@@ -115,12 +115,12 @@
 .login-header h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-primary, var(--dark));
   margin-bottom: 10px;
 }
 
 .login-header p {
-  color: #666;
+  color: var(--text-tertiary, #666);
   font-size: 1rem;
 }
 
@@ -132,31 +132,32 @@
 .login-form label {
   display: block;
   font-weight: 600;
-  color: var(--dark);
+  color: var(--text-primary, var(--dark));
   margin-bottom: 10px;
   font-size: 0.95rem;
 }
 
 .login-form label i {
   margin-right: 8px;
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
 }
 
 .login-form .form-control {
   width: 100%;
   padding: 14px 18px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-light, #e0e0e0);
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: #f8f9fa;
+  background: var(--bg-tertiary, #f8f9fa);
+  color: var(--text-primary, #1f2937);
 }
 
 .login-form .form-control:focus {
   outline: none;
-  border-color: var(--primary);
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(255, 211, 51, 0.1);
+  border-color: var(--accent-primary, var(--primary));
+  background: var(--bg-card, #fff);
+  box-shadow: 0 0 0 4px var(--focus-ring, rgba(255, 211, 51, 0.1));
 }
 
 .password-input-wrapper {
@@ -170,7 +171,7 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #999;
+  color: var(--text-light, #999);
   cursor: pointer;
   padding: 5px;
   font-size: 1.1rem;
@@ -178,7 +179,7 @@
 }
 
 .password-toggle:hover {
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
 }
 
 /* Form Options */
@@ -194,7 +195,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #666;
+  color: var(--text-tertiary, #666);
 }
 
 .remember-me input {
@@ -203,14 +204,14 @@
 }
 
 .forgot-password {
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .forgot-password:hover {
-  color: #e6c02e;
+  color: var(--accent-secondary, #e6c02e);
 }
 
 /* Buttons */
@@ -247,14 +248,14 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: #e0e0e0;
+  background: var(--border-light, #e0e0e0);
 }
 
 .divider span {
   position: relative;
-  background: #fff;
+  background: var(--bg-card, #fff);
   padding: 0 15px;
-  color: #999;
+  color: var(--text-light, #999);
   font-size: 0.9rem;
 }
 
@@ -268,10 +269,10 @@
 .btn-social {
   flex: 1;
   padding: 12px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--border-light, #e0e0e0);
   border-radius: 10px;
-  background: #fff;
-  color: #666;
+  background: var(--bg-card, #fff);
+  color: var(--text-tertiary, #666);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -283,7 +284,7 @@
 
 .btn-social:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm, 0 5px 15px rgba(0, 0, 0, 0.1));
 }
 
 .btn-google:hover {
@@ -299,19 +300,19 @@
 /* Signup Link */
 .signup-link {
   text-align: center;
-  color: #666;
+  color: var(--text-tertiary, #666);
   font-size: 0.95rem;
 }
 
 .signup-link a {
-  color: var(--primary);
+  color: var(--accent-primary, var(--primary));
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .signup-link a:hover {
-  color: #e6c02e;
+  color: var(--accent-secondary, #e6c02e);
   text-decoration: underline;
 }
 

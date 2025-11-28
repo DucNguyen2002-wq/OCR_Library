@@ -47,7 +47,7 @@ exports.uploadBookCover = async (req, res) => {
 };
 
 /**
- * Upload multiple book cover images (front, inside, back)
+ * Upload multiple book cover images (front, spine, inside, back)
  */
 exports.uploadBookCovers = async (req, res) => {
   try {

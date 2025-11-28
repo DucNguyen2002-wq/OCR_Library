@@ -58,8 +58,8 @@ const coverStorage = multer.diskStorage({
     cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
-    // Tạo tên file theo loại bìa: spine-cover-timestamp.ext, inside-cover-timestamp.ext, back-cover-timestamp.ext
-    const coverType = file.fieldname; // 'spine', 'inside', 'back'
+    // Tạo tên file theo loại bìa: front-cover-timestamp.ext, spine-cover-timestamp.ext, inside-cover-timestamp.ext, back-cover-timestamp.ext
+    const coverType = file.fieldname; // 'front', 'spine', 'inside', 'back'
     const timestamp = Date.now();
     const ext = path.extname(file.originalname);
     cb(null, `${coverType}-cover-${timestamp}${ext}`);
@@ -74,7 +74,8 @@ const uploadCovers = multer({
   },
   fileFilter: fileFilter
 }).fields([
-  { name: 'spine', maxCount: 1 },   // Thay front → spine
+  { name: 'front', maxCount: 1 },
+  { name: 'spine', maxCount: 1 },
   { name: 'inside', maxCount: 1 },
   { name: 'back', maxCount: 1 }
 ]);
@@ -128,7 +129,7 @@ router.post('/book-cover', requireAuth, upload.single('image'), uploadController
  * /api/upload/book-covers:
  *   post:
  *     tags: [Upload]
- *     summary: Upload multiple book cover images (front, inside, back)
+ *     summary: Upload multiple book cover images (front, spine, inside, back)
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -139,6 +140,9 @@ router.post('/book-cover', requireAuth, upload.single('image'), uploadController
  *             type: object
  *             properties:
  *               front:
+ *                 type: string
+ *                 format: binary
+ *               spine:
  *                 type: string
  *                 format: binary
  *               inside:

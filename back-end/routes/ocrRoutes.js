@@ -15,12 +15,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage, limits: { fileSize: 10 * 1024 * 1024 } });
 
-// Upload fields for book covers (3 images: front, inside, back)
+// Upload fields for book covers (4 images: front, spine, inside, back)
 const uploadBookCovers = multer({ 
   storage: storage, 
   limits: { fileSize: 10 * 1024 * 1024 } 
 }).fields([
   { name: 'front', maxCount: 1 },
+  { name: 'spine', maxCount: 1 },
   { name: 'inside', maxCount: 1 },
   { name: 'back', maxCount: 1 }
 ]);
@@ -56,7 +57,7 @@ const uploadBookCovers = multer({
  *       200:
  *         description: Text extracted successfully
  */
-router.post('/extract', requireAuth, upload.single('image'), ocrController.extractText);
+router.post('/extract', requireAuth, upload.single('image'), (req, res) => ocrController.extractText(req, res));
 
 /**
  * @swagger
@@ -64,7 +65,7 @@ router.post('/extract', requireAuth, upload.single('image'), ocrController.extra
  *   post:
  *     tags: [OCR]
  *     summary: Extract book information from uploaded cover images
- *     description: Process đã upload covers để extract book data
+ *     description: Process đã upload covers để extract book data (hỗ trợ 4 bìa - front, spine, inside, back)
  *     security:
  *       - bearerAuth: []
  *     requestBody:
@@ -77,6 +78,9 @@ router.post('/extract', requireAuth, upload.single('image'), ocrController.extra
  *               front:
  *                 type: string
  *                 description: Filename của bìa trước đã upload
+ *               spine:
+ *                 type: string
+ *                 description: Filename của gáy sách đã upload
  *               inside:
  *                 type: string
  *                 description: Filename của bìa trong đã upload
@@ -87,11 +91,15 @@ router.post('/extract', requireAuth, upload.single('image'), ocrController.extra
  *                 type: string
  *                 description: Comma-separated languages (default vi,en)
  *                 example: vi,en
+ *               usePerplexity:
+ *                 type: boolean
+ *                 description: Sử dụng Perplexity API để extract metadata (default true)
+ *                 example: true
  *     responses:
  *       200:
  *         description: Book information extracted successfully
  */
-router.post('/book-covers', requireAuth, ocrController.processBookCovers);
+router.post('/book-covers', requireAuth, (req, res) => ocrController.processBookCovers(req, res));
 
 /**
  * @swagger
@@ -115,7 +123,7 @@ router.post('/book-covers', requireAuth, ocrController.processBookCovers);
  *                 description: Filename của ảnh đã upload
  *               coverType:
  *                 type: string
- *                 enum: [front, inside, back]
+ *                 enum: [front, spine, inside, back]
  *                 default: front
  *               languages:
  *                 type: string
@@ -124,6 +132,6 @@ router.post('/book-covers', requireAuth, ocrController.processBookCovers);
  *       200:
  *         description: Book information extracted successfully
  */
-router.post('/book-cover', requireAuth, ocrController.processBookCover);
+router.post('/book-cover', requireAuth, (req, res) => ocrController.processBookCover(req, res));
 
 module.exports = router;

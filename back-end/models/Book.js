@@ -73,6 +73,11 @@ const bookSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    translator: {
+      type: String,
+      default: null,
+      trim: true,
+    },
   },
   {
     timestamps: true,
