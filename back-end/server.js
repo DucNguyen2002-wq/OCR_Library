@@ -102,6 +102,7 @@ const ocrRoutes = require("./routes/ocrRoutes");
 const userRoutes = require("./routes/userRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
+const ocrSearchRoutes = require("./routes/ocrSearchRoutes");
 
 // Auth routes (login, register, logout, me)
 app.use("/api/auth", authRoutes);
@@ -117,6 +118,9 @@ app.use("/api/upload", uploadRoutes);
 
 // OCR routes (process images)
 app.use("/api/ocr", ocrRoutes);
+
+// OCR Search routes (search books by image using OCR + AI)
+app.use("/api/ocr", ocrSearchRoutes);
 
 // Notification routes
 const notificationRoutes = require("./routes/notificationRoutes");

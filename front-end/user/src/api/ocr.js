@@ -170,3 +170,30 @@ export const extractText = async (image) => {
     throw error.response?.data || { message: 'Lỗi khi trích xuất văn bản' };
   }
 };
+
+/**
+ * Tìm kiếm sách bằng ảnh OCR (NEW)
+ * @param {File} imageFile - File ảnh bìa sách
+ * @returns {Promise} Response data
+ */
+export const searchBookByImage = async (imageFile) => {
+  const formData = new FormData();
+  formData.append('coverImage', imageFile);
+
+  const response = await client.post('/ocr/search-book', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  return response.data;
+};
+
+/**
+ * Kiểm tra trạng thái OCR search service (NEW)
+ * @returns {Promise} Service status
+ */
+export const checkOCRSearchStatus = async () => {
+  const response = await client.get('/ocr/search-book/status');
+  return response.data;
+};

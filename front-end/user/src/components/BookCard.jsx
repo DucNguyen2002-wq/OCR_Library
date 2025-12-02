@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BookCard.css';
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, showStatus = false }) => {
   // Get book ID from _id or id field
   const bookId = book._id || book.id;
   
@@ -13,11 +13,13 @@ const BookCard = ({ book }) => {
     || (book.image ? `http://localhost:3000${book.image}` : null)
     || '/placeholder-book.jpg';
   
-  const statusBadge = book.approval_status === 'approved' 
-    ? <span className="badge badge-success">Approved</span>
-    : book.approval_status === 'rejected'
-    ? <span className="badge badge-danger">Rejected</span>
-    : <span className="badge badge-warning">Pending</span>;
+  const statusBadge = showStatus && book.approval_status
+    ? (book.approval_status === 'approved' 
+      ? <span className="badge badge-success">Approved</span>
+      : book.approval_status === 'rejected'
+      ? <span className="badge badge-danger">Rejected</span>
+      : <span className="badge badge-warning">Pending</span>)
+    : null;
 
   return (
     <div className="book-card">

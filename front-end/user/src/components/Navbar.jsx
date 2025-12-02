@@ -122,6 +122,11 @@ const Navbar = () => {
             {user && (
               <>
                 <span className="nav-dot">•</span>
+                <Link to="/ocr-search" className="nav-link-minimal">
+                  <i className="fas fa-camera"></i>
+                  Search by Cover
+                </Link>
+                <span className="nav-dot">•</span>
                 <Link to="/add-book" className="nav-link-minimal">
                   <i className="fas fa-plus-circle"></i>
                   Add Book

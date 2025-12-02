@@ -28,6 +28,7 @@ import EditRejectedBook from './pages/EditRejectedBook';
 import Notifications from './pages/Notifications';
 import ReportUpdates from './pages/ReportUpdates';
 import DeleteRequests from './pages/DeleteRequests';
+import OCRBookSearch from './pages/OCRBookSearch';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -121,6 +122,14 @@ const LayoutWrapper = () => {
             element={
               <ProtectedRoute>
                 <MyBooks />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/ocr-search" 
+            element={
+              <ProtectedRoute>
+                <OCRBookSearch />
               </ProtectedRoute>
             } 
           />
